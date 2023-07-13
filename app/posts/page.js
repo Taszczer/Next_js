@@ -1,9 +1,7 @@
 import React from "react";
 
 const page = () => {
-    return (
-        <div>Hello nigga</div>
-    );
+    return (<div>Posts</div>);
 }
 
 import React from "react";
