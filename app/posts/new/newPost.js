@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const newPosts = () => {
-    return (
-        <div>New post</div>
-    );
+    return <div>New post</div>
 }
 
-export default newPosts;
+export default newPosts
