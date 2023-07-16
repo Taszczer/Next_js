@@ -55,7 +55,26 @@ const SearchManufacturer = ({ manufacturer, setManufacturer}: SearchManufacturer
                         key={item}
                         className={({ active }) => `relative cursor-default select-none py-2 pl-10 pr-4 list-none hover:bg-primary-blue hover:text-white  `}
                       >
-                        {item} 
+                        {({ selected, active }) => (
+                          <>
+                           <span
+                          className={`block truncate ${
+                            selected ? 'font-medium' : 'font-normal'
+                          }`}
+                        >
+                          {item}
+                        </span>
+                        {selected ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? 'text-white' : 'text-teal-600'
+                            }`}
+                          >
+                          
+                          </span>
+                        ) : null}
+                          </>
+                        )}
                       </Combobox.Option>
                     ))
                   )}
