@@ -45,7 +45,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer}: SearchManufacturer
                   {filteredManufacturers.length === 0 && query !== "" ? (
                     <Combobox.Option
                       value={query}
-                      className='search-manufacturer__option'
+                      className='cursor-default select-none py-2 pl-10 pr-4'
                     >
                       Create '{ query }'
                     </Combobox.Option>
@@ -53,7 +53,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer}: SearchManufacturer
                     filteredManufacturers.map((item) => (
                       <Combobox.Option
                         key={item}
-                        className={({ active }) => `relative search-manufcaturer__option hover:bg-primary-blue hover:text-white  `}
+                        className={({ active }) => `relative cursor-default select-none py-2 pl-10 pr-4 list-none hover:bg-primary-blue hover:text-white  `}
                       >
                         {item} 
                       </Combobox.Option>
