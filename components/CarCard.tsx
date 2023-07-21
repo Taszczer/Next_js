@@ -6,6 +6,7 @@ import { CarProps } from "@/types"
 import CustomButton from "./CustomButton"
 import { calculateCarRent } from "@/utils"
 import CarDetails from "./CarDetails"
+import { Tilt } from 'react-tilt'
 
 interface CarCardProps {
     car: CarProps
@@ -16,7 +17,8 @@ const CarCard = ({ car }: CarCardProps) => {
     const carRent = calculateCarRent(city_mpg, year)
     const [isOpen, setIsOpen] = useState(false)
 
-  return (
+    return (
+      <Tilt>
       <div className="car-card group">
           <div className="car-card__content">
               <h2 className="car-card__content-title">
@@ -81,7 +83,8 @@ const CarCard = ({ car }: CarCardProps) => {
               closeModal={() => setIsOpen(false)} 
               car={car}
           />  
-        </div>
+            </div>
+            </Tilt>
   )
 }
 

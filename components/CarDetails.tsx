@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Fragment } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { relative } from "path"
+
 //Dialog is model with opens
 
 interface CarDetailsProps {
