@@ -4,16 +4,16 @@ import CustomFilter from '@/components/CustomFilter'
 import SearchBar from '@/components/SearchBar'
 import { fuels, yearsOfProduction } from '@/constants'
 import { fetchCars } from '@/utils'
-import Image from 'next/image'
+import Image from 'next/image' 
 
 
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: any) {
 
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || '',
-    limit: searchParams.limit || 50,
+    limit: searchParams.limit || 20,
     model: searchParams.model || '',
   })
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars 
