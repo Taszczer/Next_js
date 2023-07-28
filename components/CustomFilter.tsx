@@ -11,15 +11,13 @@ import { updateSearchParams } from '@/utils'
 const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
   const [selected, setSelected] = useState(options[0])
   
-  
-
   return (
     <div className='w-fit'>
       <Listbox
         value={selected}
         onChange={(e) => {
           setSelected(e)
-          setFilter(e)
+          setFilter(e.value)
         }}
       >
         <div className='relative w-fit z-10'>

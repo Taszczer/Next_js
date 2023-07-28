@@ -45,6 +45,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    console.log(fuel, year, limit, model, manufacturer)
     getCars()
   }, [fuel, year, limit, model, manufacturer])
 
@@ -85,7 +86,7 @@ export default function Home() {
               <div className='mt-16 w-full flex-center'>
                 <Image
                   alt='loader'
-                  src='/loader.svg'
+                  src='/loader.png'
                   className='object-contain'
                   width={ 50 }
                   height={ 50 }
