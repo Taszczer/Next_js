@@ -15,32 +15,34 @@ export default function Home() {
 
   //search state
   const [manufacturer, setManufacturer] = useState('')
-  const [model, setmodel] = useState('')
+  const [model, setModel] = useState('')
 
   //filter states
-  const [fuel, setfuel] = useState('')
-  const [year, setyear] = useState(2022)
+  const [fuel, setFuel] = useState('')
+  const [year, setYear] = useState(2022)
   
   //pagination state
-  const [limit, setlimit] = useState(10)
+  const [limit, setLimit] = useState(10)
 
-  const getCars =async () => {
+  const getCars = async () => {
+    setLoading(true);
+  
     try {
       const result = await fetchCars({
         manufacturer: manufacturer || '',
-        year: year || 2022 || 2021,
+        year,
         fuel: fuel || '',
-        limit: limit || 12,
+        limit,
         model: model || '',
-      })
+      });
   
-      setAllCars(result)
+      setAllCars(result);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     getCars()
@@ -58,15 +60,20 @@ export default function Home() {
         </div>
 
         <div className='home__filters'>
-          <SearchBar />
+          <SearchBar
+            setManufacturer={setManufacturer}
+            setModel={setModel}
+          />
 
           <div className='home__filter-container'>
-            <CustomFilter title="fuel" options={ fuels } />
-            <CustomFilter title="year" options={ yearsOfProduction } />
+            <CustomFilter title="fuel" options={fuels}
+              setFilter={setFuel} />
+            <CustomFilter title="year" options={yearsOfProduction}
+              setFilter={setYear}/>
           </div>
         </div>
 
-        {!isDataEmpty ? (
+        {allCars.length > 0 ? (
           <section>
             <div className='home__cars-wrapper'>
               {allCars?.map((car) => (
@@ -74,9 +81,22 @@ export default function Home() {
               ))}
             </div>
 
+            {loading && (
+              <div className='mt-16 w-full flex-center'>
+                <Image
+                  alt='loader'
+                  src='/loader.svg'
+                  className='object-contain'
+                  width={ 50 }
+                  height={ 50 }
+                />
+              </div>
+            )}
+
             <ShowMore
-              pageNumber={(limit || 10) / 10}
-              isNext={(limit || 10) > allCars.length}
+              pageNumber={limit / 10}
+              isNext={limit > allCars.length}
+              setLimit={setLimit}
             />
           </section>
         ) : (
