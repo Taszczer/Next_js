@@ -54,3 +54,12 @@ export interface ShowMoreProps {
     isNext: boolean
     setLimit: any
 }
+
+export interface forSpecialButton {
+    title: string
+    containerStyles?: string
+    btnType?: 'button' | 'submit'
+    textStyles?: string
+    isDisabled?: boolean
+    handleClick?: MouseEventHandler<HTMLButtonElement>
+}
