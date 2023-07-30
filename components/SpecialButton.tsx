@@ -65,19 +65,33 @@ const SpecialButton = ({title, containerStyles, btnType, isDisabled, textStyles,
                 leaveFrom=' opacity-100 scale-100'
                 leaveTo=' opacity-0 scale-0'
               >
-                <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
-                  <button
-                    type='button'
-                    onClick={closeM}
-                  >
-                    <Image
-                      src="/close.svg"
-                      alt="close"
-                      className='object-contain'
-                      width={50}
-                      height={50}
-                    />
-                  </button>
+                <Dialog.Panel className='flex flex-col text-left gap-2 relative w-full max-w-sm transform overflow-auto rounded-2xl bg-white p-6 shadow-xl transition-all'>
+                  <div className='flex-between'>
+                    <Dialog.Title
+                      as='h3'
+                      className="text-2xl font-extrabold leading-6 text-[#2B59FF]"
+                    >
+                      Rent your car right now
+                      </Dialog.Title>
+                    
+                    <button
+                      type='button'
+                      className='flex justify-end align-middle text-right'
+                      onClick={closeM}
+                    >
+                      <Image
+                        src="/close.svg"
+                        alt="close"
+                        className='object-contain'
+                        width={25}
+                        height={25}
+                      />
+                    </button>
+                    
+                  </div>
+                  <div>
+                    <h3>But first you need to</h3>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
