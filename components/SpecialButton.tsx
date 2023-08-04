@@ -92,7 +92,7 @@ const SpecialButton = ({title, containerStyles, btnType, isDisabled, textStyles,
                   <div>
                     <h3>But first you need to</h3>
                   </div>
-                  {/* I don't want to style this shit */}
+                  
                 </Dialog.Panel>
               </Transition.Child>
             </div>
