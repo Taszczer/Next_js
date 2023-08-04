@@ -7,7 +7,7 @@ import { Dialog, Transition } from "@headlessui/react"
 import { relative } from "path"
 import { generateCarImageUrl } from "@/utils"
 
-//Dialog is model with opens
+
 
 interface CarDetailsProps {
   isOpen: boolean;
